@@ -5,14 +5,7 @@ open Expect_test_matcher
 module Test_result = Ppx_inline_test_lib.Runtime.Test_result
 module Collector_test_outcome = Expect_test_collector.Test_outcome
 
-module Obj = struct
-  module Extension_constructor = struct
-    [@@@ocaml.warning "-3"]
-
-    let of_val = Stdlib.Obj.extension_constructor
-    let name = Stdlib.Obj.extension_name
-  end
-end
+module Obj = Stdlib.Obj
 
 type group =
   { filename : File.Name.t
